@@ -1,3 +1,3 @@
 # Graph-algos-visualization
 
-Algorithm visualisation on 2D map with custom obstacles
+Algorithm visualization on 2D map with custom obstacles
