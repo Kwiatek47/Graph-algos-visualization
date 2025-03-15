@@ -2,6 +2,10 @@
 
 Algorithm visualization on a 2D map with custom obstacles.
 
+### Requirements
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pygame](https://img.shields.io/badge/Pygame-00A300?style=for-the-badge&logo=pygame&logoColor=white)
+
 ## Project Overview
 
 This is a simple project designed to demonstrate the operation of various graph traversal algorithms in the context of a 2D grid. The main purpose is to visualize how these algorithms explore a grid, taking into account obstacles placed by the user. By using a 2D map as the graph, this project shows how different algorithms search for paths from a start point to an end point.
