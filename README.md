@@ -48,7 +48,7 @@ Each algorithm is visualized step by step, with nodes being highlighted as they 
 - Inspired by classic pathfinding algorithms.
 
 ## To-Do List
-💡Implement BFS, Dijkstra, A*
+💡Implement Dijkstra, A*
 💡Think about graph representation
 💡Improve the front-end to make it more pleasant
 
