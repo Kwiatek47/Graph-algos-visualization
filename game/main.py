@@ -4,8 +4,11 @@ import os
 
 # Add the dfs folder to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'dfs')))
-
 from dfs import dfs, generate_dfs_trace, Valid
+
+# Add the bfs folder to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'bfs')))
+from bfs import bfs, generate_bfs_trace, Valid
 
 # Initialize pygame and font modules
 pygame.init()
@@ -49,9 +52,9 @@ start_square = (0, 0)
 end_square = (0, 0)
 
 # Variables for animating the DFS path
-dfs_path = []
-dfs_index = 0
-animating_dfs = False
+algo_path = []
+algo_index = 0
+animating_algorithm = False
 animation_delay = 100  # Delay in milliseconds between steps
 last_update_time = 0
 
@@ -90,14 +93,18 @@ def print_path(vis):
 
 # Start the DFS animation by generating the DFS trace and resetting animation parameters
 def DFS():
-	global dfs_path, dfs_index, animating_dfs, last_update_time
-	dfs_path = generate_dfs_trace(start_square, end_square, selected_squares)
-	dfs_index = 0
-	animating_dfs = True
+	global algo_path, algo_index, animating_algorithm, last_update_time
+	algo_path = generate_dfs_trace(start_square, end_square, selected_squares)
+	algo_index = 0
+	animating_algorithm = True
 	last_update_time = pygame.time.get_ticks()
 
 def BFS():
-	print("BFS")
+	global algo_path, algo_index, animating_algorithm, last_update_time
+	algo_path = generate_bfs_trace(start_square, end_square, selected_squares)
+	algo_index = 0
+	animating_algorithm = True
+	last_update_time = pygame.time.get_ticks()
 
 def DIJKSTRA():
 	print("Dijkstra")
@@ -163,15 +170,15 @@ while running:
 	DisplayBoard()
 	
 	# Update DFS animation: show the path one step at a time
-	if animating_dfs:
+	if animating_algorithm:
 		current_time = pygame.time.get_ticks()
 		if current_time - last_update_time > animation_delay:
-			dfs_index += 1
+			algo_index += 1
 			last_update_time = current_time
-			if dfs_index > len(dfs_path):
-				animating_dfs = False
+			if algo_index > len(algo_path):
+				animating_algorithm = False
 		# Draw only the part of the DFS path that is ready
-		print_path(dfs_path[:dfs_index])
+		print_path(algo_path[:algo_index])
 	
 	pygame.display.flip()
 	clock.tick(60)
